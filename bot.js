@@ -48,22 +48,22 @@ function connect() {
   });
 
   client.on('disconnect', (packet) => {
-    console.log('❌ Disconnected from server:', packet && packet.reason);
+    console.log('❌ Disconnected from server. Full reason:', JSON.stringify(packet));
     cleanupAndReconnect();
   });
 
   client.on('kick', (packet) => {
-    console.log('❌ Kicked from server:', packet);
+    console.log('❌ Kicked from server. Full reason:', JSON.stringify(packet));
     cleanupAndReconnect();
   });
 
   client.on('close', () => {
-    console.log('Connection closed.');
+    console.log('Connection closed. (This can mean a protocol/version mismatch if it happens right after connecting, with no other error above it.)');
     cleanupAndReconnect();
   });
 
   client.on('error', (err) => {
-    console.error('⚠️ Client error:', err.message);
+    console.error('⚠️ Client error:', err && err.stack ? err.stack : err);
   });
 
   function cleanupAndReconnect() {
