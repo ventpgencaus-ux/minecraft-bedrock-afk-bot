@@ -28,7 +28,6 @@ function connect() {
     port: PORT,
     username: USERNAME,
     offline: true, // no Xbox Live login needed
-    raknetBackend: 'jsp', // pure JavaScript networking, avoids native build issues on cloud hosts
   });
 
   client.on('spawn', () => {
