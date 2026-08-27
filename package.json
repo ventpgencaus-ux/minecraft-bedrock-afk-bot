@@ -7,7 +7,7 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "bedrock-protocol": "bedrock-protocol": "*",
+  "bedrock-protocol": "*",
     "dotenv": "^16.4.5"
   }
 }
