@@ -28,6 +28,7 @@ function connect() {
     port: PORT,
     username: USERNAME,
     offline: true, // no Xbox Live login needed
+    version: '1.26.20', // closest version this library supports; server may still accept it
   });
 
   client.on('spawn', () => {
